@@ -1,0 +1,70 @@
+<?php
+/**
+ * The main template file
+ *
+ * This is the most generic template file in a WordPress theme and one
+ * of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query,
+ * e.g., it puts together the home page when no home.php file exists.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage Worldpress
+ * @since Worldpress 0.1
+ */
+
+?>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="profile" href="http://gmpg.org/xfn/11">
+		<meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo("charset");?>">
+		<title><?php bloginfo('title');?></title>
+		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    	<!--[if lt IE 9]>
+      		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+		<?php wp_head(); ?>
+	</head>
+	<body>
+		<header>
+			<div class="fixed top-bar">
+				<div class="container">
+					<div class="col-md-9">
+						<?php wp_nav_menu(
+							array( 
+								'container_class' => 'main-menu clearfix',
+								'theme_location' => 'main-menu',
+								'menu_class' => 'nav navbar-nav',
+							)
+						); ?> 
+					</div>
+					<div class="sns-link col-md-2 clearfix">
+						<a href="<?php echo get_theme_mod('facebook_profile_link', 'http://www.facebook.com'); ?>">
+							<i class="fa fa-facebook"></i>
+						</a>
+						<a href="<?php echo get_theme_mod('twitter_profile_link', 'http://www.twitter.com'); ?>">
+							<i class="fa fa-twitter"></i>
+						</a>
+						<a href="<?php echo get_theme_mod('google_profile_link', 'http://plus.google.com'); ?>">
+							<i class="fa fa-google-plus"></i>
+						</a>
+						<a href="<?php echo get_theme_mod('pinterest_profile_link', 'http://www.pinterest.com'); ?>">
+							<i class="fa fa-pinterest"></i>
+						</a>
+					</div>	
+					<div class="col-md-1 search-bar">
+						<div class="search-icon"><i class="fa fa-search"></i></div>
+						<div class="search-toggle"><?php get_search_form();?></div>
+					</div>
+				</div>
+			</div>
+		</header>
+

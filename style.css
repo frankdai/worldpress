@@ -1,0 +1,97 @@
+/*
+Theme Name: Worldpress
+Author: Frank Dai
+Author URI: https://frankdai.com
+Description: Wordpress made into worldpress
+Version: 0.1
+License: MIT
+Text Domain: twentyfourteen
+
+
+*/
+body {
+  font-family: 'Source Sans Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #f5f4f0;
+}
+a {
+  text-decoration: none;
+  color: #555555;
+}
+a:hover {
+  color: #bc8e5c;
+}
+a:active {
+  color: #bc8e5c;
+}
+ul,
+li {
+  list-style: none;
+}
+.no-display {
+  display: none;
+}
+.centered-text {
+  text-align: center;
+}
+.main-menu {
+  background-color: transparent;
+}
+#menu-main-menu-nav > li {
+  position: relative;
+}
+#menu-main-menu-nav > li .sub-menu {
+  text-align: center;
+  display: none;
+  position: absolute;
+  left: 0;
+  padding: 0 15px;
+  background-color: #eeeeee;
+}
+#menu-main-menu-nav > li .sub-menu.over {
+  display: block;
+}
+.top-bar {
+  background-color: #fff;
+}
+.top-bar .col-md-9 {
+  padding: 0;
+}
+.sns-link > a {
+  display: block;
+  float: left;
+  width: 25%;
+  height: 50px;
+  text-align: center;
+}
+.sns-link > a i {
+  font-size: 20px;
+  line-height: 50px;
+}
+.search-bar .search-icon {
+  margin: 10px auto;
+  border-radius: 50%;
+  background-color: #222222;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  position: relative;
+}
+.search-bar .search-icon i.fa {
+  color: white;
+  line-height: 30px;
+  cursor: pointer;
+}
+.search-bar .search-toggle {
+  -moz-transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  z-index: 101;
+  position: absolute;
+  width: auto;
+  right: 0;
+  min-width: 255px;
+}
+.search-bar .search-toggle.show {
+  opacity: 1;
+}

@@ -1,0 +1,26 @@
+.float-left() {
+	float:left;
+}
+.no-display {
+	display:none;
+}
+.centered-text{
+	text-align: center;
+}
+.border-radius(@value) {
+	border-radius:@value;
+}
+.centered-block(@top-margin:0) {
+	margin:@top-margin auto;
+}
+.transition(@property:all;@time:0.5s;@function:ease-in-out) {
+	-moz-transition:@property @time @function;
+	-webkit-transition:@property @time @function;
+	transition:@property @time @function;
+}
+.resetpadding(){
+	padding:0;
+}
+.resetmaring(){
+	margin: 0;
+}
