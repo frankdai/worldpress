@@ -83,5 +83,21 @@ function wordpress_assets() {
 	wp_enqueue_style( 'sitecss', get_template_directory_uri().'/style.css',array('bootstrapcss') );
 	wp_enqueue_script( 'bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), null, false );
 	wp_enqueue_script( 'sitejs', get_template_directory_uri() . '/js/script.js', array('bootstrapjs'), null, false );
+	wp_enqueue_script( 'jslide', get_template_directory_uri() . '/js/jslide.min.js', array('jquery'), null, false );
 }
 add_action( 'wp_enqueue_scripts', 'wordpress_assets' );
+
+//add featured post type to be displayed in home page
+function create_post_type() {
+  register_post_type( 'featured_post',
+    array(
+      'labels' => array(
+        'name' => __( 'Featured Post' ),
+      ),
+      'description'=>'Featured Post Will be promoted',
+      'public' => true,
+      'has_archive' => true,
+    )
+  );
+}
+add_action( 'init', 'create_post_type' );

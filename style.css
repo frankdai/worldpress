@@ -67,6 +67,7 @@ li {
 }
 .top-bar .blogname {
   font-size: 16px;
+  font-weight: 600;
   padding: 14px 0;
   text-align: center;
 }
@@ -186,4 +187,46 @@ li {
 }
 .navbar-mobile .sub-menu.show {
   display: block;
+}
+.front-headline {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.featured-posts {
+  background-color: #eeeeee;
+}
+.jslide-outside {
+  overflow: hidden;
+}
+.jslide-item {
+  float: left;
+  box-sizing: border-box;
+}
+.jslide-container {
+  box-sizing: border-box;
+  width: 10000px;
+  /*to keep the layout from broken in case of slow load*/
+}
+.jslide {
+  position: relative;
+}
+.jslide-control {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 250px;
+  padding-top: 115px;
+  padding-bottom: 115px;
+}
+.jslide-control.nomore {
+  color: #a2a2a2;
+}
+.jslide-control .fa {
+  font-size: 20px;
+}
+.jslide-control.left {
+  left: 0;
+}
+.jslide-control.right {
+  right: 0;
 }

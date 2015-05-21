@@ -1,3 +1,4 @@
+//header,menu etc.
 .main-menu {
 	background-color:transparent; 
 }
@@ -31,6 +32,7 @@
 	}
 	.blogname {
 		font-size: 16px;
+		font-weight:600;
 		padding:14px 0;
 		.centered-text();
 		a {
@@ -147,3 +149,43 @@
 	}	
 }
 
+//headline only appears on the front page
+.front-headline {
+	.middle-padding(10px);
+}
+.featured-posts {
+	background-color: @gray-lighter
+}
+.jslide-outside {
+    overflow:hidden;
+}
+.jslide-item {
+    float: left;
+    box-sizing:border-box;
+}
+.jslide-container {
+    box-sizing:border-box;
+    width:10000px; /*to keep the layout from broken in case of slow load*/
+}
+.jslide {
+    position:relative;
+}
+.jslide-control { 
+	cursor: pointer;
+    position:absolute;
+    width:20px;
+    height:250px;
+    .middle-padding(115px);
+    &.nomore {
+    	color:darken(@gray-lighter, 30%);
+    }
+    .fa {
+    	font-size: 20px
+    }
+}
+.jslide-control.left {
+    left:0;
+}
+.jslide-control.right {
+    right:0;
+}

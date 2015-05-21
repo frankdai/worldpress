@@ -35,6 +35,15 @@
 			event.preventDefault();
 		});
 	};
+	worldpress.carousel=function(){
+		var jslide=$('.jslide').jSlide({
+			number:1,
+			CSSTransition:true,
+		});
+		var controls=$('.jslide-control');
+		var padding=($('.jslide-container').height()-20)/2;
+		controls.css({'padding-top':padding,'padding-bottom':padding});
+	}
 	$(document).ready(function(){
 		$.each(worldpress,function(key,value){
 			if (typeof value==="function") {
