@@ -1,6 +1,9 @@
 .float-left() {
 	float:left;
 }
+.float-right() {
+	float:right;
+}
 .no-display {
 	display:none;
 }
@@ -18,9 +21,26 @@
 	-webkit-transition:@property @time @function;
 	transition:@property @time @function;
 }
-.resetpadding(){
-	padding:0;
+.resetpadding(@value:0){
+	padding:@value;
 }
-.resetmaring(){
-	margin: 0;
+.resetmargin(@value:0){
+	margin: @value;
+}
+.square(@value) {
+	width:@value;
+	height:@value;
+}
+.fa() {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+}
+.centered-padding(@value){
+	padding-left:@value;
+	padding-right:@value;
+}
+.middle-padding(@value){
+	padding-top:@value;
+	padding-bottom:@value;
 }

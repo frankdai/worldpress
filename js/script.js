@@ -22,6 +22,19 @@
 			}
 		})
 	};
+	worldpress.mobileNav=function(){
+		var button=$('.navbar-toggle');
+		var items=$('.navbar-mobile .menu-item-has-children');
+		button.click(function(){
+			var menu=$('.navbar-mobile');
+			menu.toggleClass('show');
+			$(this).toggleClass('collapsed');
+		});
+		items.click(function(event){
+			$(this).find('.sub-menu').toggleClass('show');
+			event.preventDefault();
+		});
+	};
 	$(document).ready(function(){
 		$.each(worldpress,function(key,value){
 			if (typeof value==="function") {

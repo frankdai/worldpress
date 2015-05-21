@@ -39,6 +39,10 @@ li {
 #menu-main-menu-nav > li {
   position: relative;
 }
+#menu-main-menu-nav > li > a:focus,
+#menu-main-menu-nav > li > a:hover {
+  background-color: transparent;
+}
 #menu-main-menu-nav > li .sub-menu {
   text-align: center;
   display: none;
@@ -46,6 +50,11 @@ li {
   left: 0;
   padding: 0 15px;
   background-color: #eeeeee;
+  min-width: 100%;
+}
+#menu-main-menu-nav > li .sub-menu > li {
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 #menu-main-menu-nav > li .sub-menu.over {
   display: block;
@@ -55,6 +64,17 @@ li {
 }
 .top-bar .col-md-9 {
   padding: 0;
+}
+.top-bar .blogname {
+  font-size: 16px;
+  padding: 14px 0;
+  text-align: center;
+}
+.top-bar .blogname a {
+  color: #bc8e5c;
+}
+.top-bar .blogname a:hover {
+  text-decoration: none;
 }
 .sns-link > a {
   display: block;
@@ -66,6 +86,14 @@ li {
 .sns-link > a i {
   font-size: 20px;
   line-height: 50px;
+}
+.search-bar {
+  float: left;
+}
+.search-bar .form-group {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
 }
 .search-bar .search-icon {
   margin: 10px auto;
@@ -94,4 +122,68 @@ li {
 }
 .search-bar .search-toggle.show {
   opacity: 1;
+}
+.hover-navbar {
+  display: none;
+}
+.col-xs-3.search-bar {
+  float: right;
+}
+@media (min-width: 768px) {
+  .navbar-header,
+  .navbar-mobile {
+    display: none;
+  }
+  .hover-navbar {
+    display: block;
+  }
+  .search-bar {
+    float: right;
+  }
+}
+.navbar-toggle {
+  border-color: #333333;
+  transform: rotate(90deg);
+  width: 22px;
+  height: 22px;
+  box-sizing: content-box;
+  padding: 5px;
+}
+.navbar-toggle.collapsed {
+  transform: rotate(0deg);
+}
+.navbar-toggle .icon-bar {
+  background-color: #333333;
+}
+.navbar-mobile {
+  max-height: 0px;
+  overflow: hidden;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.navbar-mobile.show {
+  max-height: 1000px;
+}
+.navbar-mobile .nav > li > a:hover,
+.navbar-mobile .nav > li > a:focus {
+  background-color: transparent;
+  color: inherit;
+}
+.navbar-mobile .mobile-menu > ul {
+  margin: 0 -15px;
+}
+.navbar-mobile .mobile-menu > ul .menu-item-has-children > a::after {
+  content: "\f0d7";
+  margin-left: 5px;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+}
+.navbar-mobile .sub-menu {
+  display: none;
+  padding-left: 20px;
+}
+.navbar-mobile .sub-menu.show {
+  display: block;
 }

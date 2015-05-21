@@ -37,16 +37,40 @@
 		<header>
 			<div class="fixed top-bar">
 				<div class="container">
-					<div class="col-md-9">
-						<?php wp_nav_menu(
+
+					<div class="col-sm-9 hover-navbar">
+						<div class="blogname col-sm-2">
+							 <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo('name');?></a>
+						</div>
+						<div class="col-sm-10">
+							<?php wp_nav_menu(
+								array( 
+									'container_class' => 'main-menu clearfix',
+									'theme_location' => 'main-menu',
+									'menu_class' => 'nav navbar-nav',
+								)
+							); ?> 
+						</div>
+					</div>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-brand"><?php bloginfo('name');?></a>
+				    </div>
+				    <div class="navbar-mobile">
+				    	<?php wp_nav_menu(
 							array( 
-								'container_class' => 'main-menu clearfix',
+								'container_class' => 'mobile-menu clearfix',
 								'theme_location' => 'main-menu',
 								'menu_class' => 'nav navbar-nav',
 							)
 						); ?> 
-					</div>
-					<div class="sns-link col-md-2 clearfix">
+				    </div>
+					<div class="sns-link col-sm-2 col-xs-6 clearfix">
 						<a href="<?php echo get_theme_mod('facebook_profile_link', 'http://www.facebook.com'); ?>">
 							<i class="fa fa-facebook"></i>
 						</a>
@@ -60,7 +84,7 @@
 							<i class="fa fa-pinterest"></i>
 						</a>
 					</div>	
-					<div class="col-md-1 search-bar">
+					<div class="col-sm-1 col-xs-3 search-bar">
 						<div class="search-icon"><i class="fa fa-search"></i></div>
 						<div class="search-toggle"><?php get_search_form();?></div>
 					</div>
