@@ -1,7 +1,7 @@
-.float-left() {
+.float-left {
 	float:left;
 }
-.float-right() {
+.float-right {
 	float:right;
 }
 .no-display {
@@ -44,8 +44,21 @@
 	padding-top:@value;
 	padding-bottom:@value;
 }
+.centered-margin(@value){
+	margin-left:@value;
+	margin-right:@value;
+}
 .img-responsive {
 	max-width: 100%;
 	height:auto;
 	display: block;
+}
+.transform-text(@value:capitalize) {
+	text-transform: @value
+}
+.dotbottomborder(){
+	border-bottom:1px dotted @main-color;
+}
+.border-radius(@value:5px){
+	border-radius: @value;
 }

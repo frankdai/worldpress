@@ -12,7 +12,7 @@
 
 ?>
 
-<form class="form-inline" action="<?php echo home_url( '/' ); ?>" method="get">
+<form class="form-inline search-form" action="<?php echo home_url( '/' ); ?>" method="get">
   <div class="form-group">
     <div class="input-group">
       <input type="text" class="form-control" name="s" id="search" value="<?php the_search_query(); ?>" placeholder="Search This Blog">

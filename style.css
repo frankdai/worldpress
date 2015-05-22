@@ -27,6 +27,12 @@ ul,
 li {
   list-style: none;
 }
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
 .no-display {
   display: none;
 }
@@ -200,6 +206,7 @@ li {
 .featured-posts {
   background-color: white;
   padding-bottom: 20px;
+  margin-bottom: 15px;
 }
 .featured-posts h2 {
   padding-left: 15px;
@@ -277,4 +284,93 @@ li {
   max-width: 100%;
   height: auto;
   display: block;
+}
+section.blog-posts {
+  background-color: white;
+  padding: 15px;
+  margin-top: 20px;
+}
+section.blog-posts article.post-content {
+  margin-top: 10px;
+}
+section.blog-posts article.post-content .tags a {
+  font-size: 16px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+section.blog-posts article.post-content .tags a::before {
+  content: "\f02c";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  margin-right: 5px;
+}
+section.blog-posts article.post-content .authorship {
+  padding: 0;
+}
+section.blog-posts article.post-content .like,
+section.blog-posts article.post-content .dislike {
+  cursor: pointer;
+  display: inline-block;
+  color: #eeeeee;
+  font-size: 18px;
+  padding: 3px 5px;
+  border-radius: 8px;
+  width: 50px;
+  text-align: center;
+  background-color: #e06952;
+  margin: 5px 10px 5px 0;
+}
+section.blog-posts article.post-content .like .fa,
+section.blog-posts article.post-content .dislike .fa {
+  margin-right: 8px;
+}
+section.blog-posts h2 {
+  text-transform: capitalize;
+  border-bottom: 1px dotted #bc8e5c;
+  margin: 0;
+  padding-bottom: 5px;
+}
+section.blog-posts h2 a:hover {
+  text-decoration: none;
+}
+section.blog-posts .post-info .links span {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  border-bottom: 1px dotted #bc8e5c;
+}
+section.blog-posts .post-info .links span a:hover {
+  text-decoration: none;
+}
+@media (min-width: 480px) {
+  #widget .search-form .form-group {
+    display: block;
+  }
+  #widget .search-form .form-group .input-group {
+    display: block;
+  }
+  #widget .search-form button {
+    margin-top: 10px;
+  }
+}
+#widget > div {
+  padding: 10px 25px 15px 25px;
+  margin: 25px auto;
+  background-color: white;
+}
+#widget > div h2.widget-title {
+  text-align: center;
+  border-bottom: 1px dotted #bc8e5c;
+  font-size: 1.5em;
+  margin-top: 5px;
+  padding-bottom: 5px;
+}
+#widget > div > ul {
+  padding: 0;
+}
+#widget > div > ul > li {
+  text-align: center;
+  text-transform: capitalize;
 }

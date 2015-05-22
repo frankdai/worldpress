@@ -36,7 +36,9 @@
 		});
 	};
 	worldpress.carousel=function(){
-		var jslide=$('.jslide').jSlide({
+		var slide=$('.jslide');
+		if (!slide) {return};
+		var jslide=slide.jSlide({
 			number:1,
 			CSSTransition:true,
 		});
@@ -50,7 +52,27 @@
 			padding=($('.jslide-container').height()-20)/2;
 			controls.css({'padding-top':padding,'padding-bottom':padding});
 		});
-	}
+	};
+	worldpress.like=function(){
+		$('.blog-posts').each(function(){
+			var that=$(this);
+			var data=that.find('.forlikedata');
+			var actionURL=data.attr('data-action');
+			var id=data.attr('data-postid');
+			var like=that.find('.like');
+			var dislike=that.find('.dislike');
+			var callback=function(data){
+				like.find('span')[0].textContent=data.like;
+				dislike.find('span')[0].textContent=data.dislike;
+			};
+			like.click(function(){
+				$.post(actionURL,{'id':id,'method':'like'},callback);
+			});
+			dislike.click(function(){
+				$.post(actionURL,{'id':id,'method':'dislike'},callback);
+			});
+		});
+	};
 	$(document).ready(function(){
 		$.each(worldpress,function(key,value){
 			if (typeof value==="function") {

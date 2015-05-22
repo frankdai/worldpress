@@ -77,39 +77,47 @@ get_header(); ?>
 	<?php
 		if ( have_posts() ) {
 			while ( have_posts() ) {
-
 				the_post(); ?>
-
-				
-				<article>
+				<section class="blog-posts">
 				<h2><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>
-				<div><?php the_date(); ?></div>	
-				<?php the_content(); ?>
-				<div><?php wp_link_pages(); ?></div>
+				<div class="post-date"><?php echo __("Posted On")?> <?php the_date(); ?></div>	
+				<article class="post-content">
 				<?php if (has_post_thumbnail()): ?>
 					<div class="featured-image"><?php echo get_the_post_thumbnail(); ?> </div>
 				<?php endif;?>
+				<?php the_content(); ?>
+				<div class="no-display forlikedata" data-postid="<?php echo $post->ID;?>" data-action="<?php echo get_template_directory_uri().'/like.php'?>"></div>
 				<?php if(!get_post_custom($post->ID)['dislike']) {
 					add_post_meta($post->ID,'dislike',0,true);
 					}
 					else {
-						echo '<span class="dislike">'.get_post_custom_values('dislike',$post->ID)[0].'</span>';
+						echo '<span class="dislike"><i class="fa fa-thumbs-o-down"></i><span>'.get_post_custom_values('dislike',$post->ID)[0].'</span></span>';
 					}
 				?>
 				<?php if(!get_post_custom($post->ID)['like']) {
 					add_post_meta($post->ID,'like',0,true);
 					}
 					else {
-						echo '<span class="like">'.get_post_custom_values('like',$post->ID)[0].'</span>';
+						echo '<span class="like"><i class="fa fa-thumbs-o-up"></i><span>'.get_post_custom_values('like',$post->ID)[0].'</span></span>';
 					}
 				?>
-				<div><?php the_tags(" "," ")?></div>
-				<div><?php the_author_posts_link(); ?></div>
+				<div class="tags"><?php echo __('Tagged:') ?> <?php the_tags(" "," ")?></div>
+				<div class="post-info clearfix">
+					<div class="authorship float-left col-sm-4"><?php echo __("Posted By ")?><?php the_author_posts_link(); ?></div>
+					<div class="links float-right col-sm-4 col-sm-offset-4">
+						<span>
+							<a href="<?php the_permalink(); ?> ">
+								<?php echo __('Permanent Link');?>
+							</a>
+						</span>
+						<span><a href=" <?php comments_link(); ?>"><?php comments_number(__('No Comments Yet')); ?></a></span>
+					</div>
 				</article>
+				</section>
 			<?php }
 		}
 	?>
-	<div class="nav-next alignright"><?php echo paginate_links(); ?></div>
+	<div class="pagination"><?php echo paginate_links(); ?></div>
 	</div>
 	<?php
 	get_sidebar();

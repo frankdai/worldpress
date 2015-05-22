@@ -33,7 +33,7 @@
     	<![endif]-->
 		<?php wp_head(); ?>
 	</head>
-	<body>
+	<body <?php body_class( $class ); ?>>
 		<header>
 			<div class="fixed top-bar">
 				<div class="container">
