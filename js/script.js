@@ -41,8 +41,15 @@
 			CSSTransition:true,
 		});
 		var controls=$('.jslide-control');
-		var padding=($('.jslide-container').height()-20)/2;
+		var height=$('.jslide-container').height();
+		var padding=(height-20)/2;
+		$('.jslide-container .post-content').css('height',height-63);
 		controls.css({'padding-top':padding,'padding-bottom':padding});
+		$(window).resize(function(){
+			jslide.data('jslide').init();
+			padding=($('.jslide-container').height()-20)/2;
+			controls.css({'padding-top':padding,'padding-bottom':padding});
+		});
 	}
 	$(document).ready(function(){
 		$.each(worldpress,function(key,value){

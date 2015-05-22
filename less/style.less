@@ -154,7 +154,43 @@
 	.middle-padding(10px);
 }
 .featured-posts {
-	background-color: @gray-lighter
+	background-color: white;
+	padding-bottom: 20px;
+	h2 {
+		.centered-padding(15px);
+		.centered-text();
+	}
+	.post-content {
+		border-left:3px solid @main-color;
+		position: relative;
+		.read-more {
+			color:hsl(0,100%,60%);
+			position: absolute;
+			bottom:5px;
+			right:15px;
+		}
+	}
+	.post-info {
+		position: relative;
+		.post-catergory {
+			background-color: @main-color;
+			color:@gray-lighter;
+			display: inline-block;
+			.centered-padding(10px);
+		}
+		.post-tags {
+			margin-top:15px;
+			ul {
+				.resetpadding();
+			}
+			li {
+				.centered-text;
+				display: inline-block;
+				margin: 5px;
+				text-transform: capitalize;
+			}
+		}
+	}
 }
 .jslide-outside {
     overflow:hidden;
@@ -188,4 +224,9 @@
 }
 .jslide-control.right {
     right:0;
+}
+
+//main content area
+.featured-image img {
+	.img-responsive();
 }

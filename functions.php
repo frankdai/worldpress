@@ -89,15 +89,21 @@ add_action( 'wp_enqueue_scripts', 'wordpress_assets' );
 
 //add featured post type to be displayed in home page
 function create_post_type() {
-  register_post_type( 'featured_post',
+  register_post_type( 'feature',
     array(
       'labels' => array(
         'name' => __( 'Featured Post' ),
       ),
+      'public'=>true,
       'description'=>'Featured Post Will be promoted',
       'public' => true,
       'has_archive' => true,
+      'taxonomies' => array('category','post_tag'),
+      'rewrite'=>false
     )
   );
 }
 add_action( 'init', 'create_post_type' );
+
+//add the feature image field
+add_theme_support( 'post-thumbnails' ); 

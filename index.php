@@ -21,7 +21,7 @@ get_header(); ?>
 	<h3 class="centered-text"><?php bloginfo('description');?></h3>
 </div>
 <div class="container featured-posts">
-	<?php $four_recent_posts=wp_get_recent_posts(array('numberposts' => 3,'post_type' => 'featured_post','post_status' => 'publish'))?>
+	<?php $four_recent_posts=wp_get_recent_posts(array('numberposts' => 3,'post_type' => 'feature','post_status' => 'publish'))?>
 	<?php if ($four_recent_posts):?>
 	<div class="jslide">
 	    <div class="jslide-control left nomore"><i class="fa fa-chevron-left"></i></div>
@@ -33,8 +33,11 @@ get_header(); ?>
 			            	<article class="posts clearfix">
 			            		<h2><?php echo get_the_title($recent["ID"]);?></h2>
 			            		<div class="post-info col-sm-3">
-			            			<div class="post-catergory"><?php echo get_the_category($recent["ID"])[0]->cat_name; ;?></div>
+			            			<span class="post-catergory"><?php echo __("Posted in ");?>
+			            				<strong><?php echo get_the_category($recent["ID"])[0]->cat_name;?></strong>
+			            			</span>
 			            			<div class="post-tags">
+			            					<strong>Tags:</strong>
 			            					<ul>
 			            					<?php 
 			            					$post_tags=wp_get_post_tags($recent["ID"]);
@@ -56,6 +59,9 @@ get_header(); ?>
 			            		</div>
 			            		<div class="post-content col-sm-9">
 			            			<?php echo apply_filters('the_content',substr($recent["post_content"],0,1000)); ?>
+			            			<a class="read-more" href="<?php echo get_permalink($recent['ID']);?>">
+			            				<?php echo __('Read More')?>
+			            			</a>
 			            		</div>
 			            	</article>
 			            </div>
@@ -67,6 +73,7 @@ get_header(); ?>
 </div>
 <?php endif;?>
 <div id="main-content" class="container main-content">
+	<div class="posts-area col-sm-9">
 	<?php
 		if ( have_posts() ) {
 			while ( have_posts() ) {
@@ -79,8 +86,9 @@ get_header(); ?>
 				<div><?php the_date(); ?></div>	
 				<?php the_content(); ?>
 				<div><?php wp_link_pages(); ?></div>
-				<div><?php echo $post->ID;?></div>
-				<pre><?php echo array_shift(get_attached_media('image'))->guid;?></pre>
+				<?php if (has_post_thumbnail()): ?>
+					<div class="featured-image"><?php echo get_the_post_thumbnail(); ?> </div>
+				<?php endif;?>
 				<?php if(!get_post_custom($post->ID)['dislike']) {
 					add_post_meta($post->ID,'dislike',0,true);
 					}
@@ -102,9 +110,13 @@ get_header(); ?>
 		}
 	?>
 	<div class="nav-next alignright"><?php echo paginate_links(); ?></div>
+	</div>
+	<?php
+	get_sidebar();
+	?>
 </div>
 
 <?php
-get_sidebar();
-wp_footer();
 get_footer();
+wp_footer();
+
