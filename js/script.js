@@ -36,22 +36,23 @@
 		});
 	};
 	worldpress.carousel=function(){
-		var slide=$('.jslide');
-		if (!slide) {return};
-		var jslide=slide.jSlide({
-			number:1,
-			CSSTransition:true,
-		});
-		var controls=$('.jslide-control');
-		var height=$('.jslide-container').height();
-		var padding=(height-20)/2;
-		$('.jslide-container .post-content').css('height',height-63);
-		controls.css({'padding-top':padding,'padding-bottom':padding});
-		$(window).resize(function(){
-			jslide.data('jslide').init();
-			padding=($('.jslide-container').height()-20)/2;
+		if ($('body').hasClass("home")){
+			var slide=$('.jslide');
+			var jslide=slide.jSlide({
+				number:1,
+				CSSTransition:true,
+			});
+			var controls=$('.jslide-control');
+			var height=$('.jslide-container').height();
+			var padding=(height-20)/2;
+			$('.jslide-container .post-content').css('height',height-63);
 			controls.css({'padding-top':padding,'padding-bottom':padding});
-		});
+			$(window).resize(function(){
+				jslide.data('jslide').init();
+				padding=($('.jslide-container').height()-20)/2;
+				controls.css({'padding-top':padding,'padding-bottom':padding});
+			});
+		}
 	};
 	worldpress.like=function(){
 		$('.blog-posts').each(function(){

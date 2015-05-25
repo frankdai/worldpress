@@ -21,14 +21,14 @@ get_header(); ?>
 	<h3 class="centered-text"><?php bloginfo('description');?></h3>
 </div>
 <div class="container featured-posts">
-	<?php $four_recent_posts=wp_get_recent_posts(array('numberposts' => 3,'post_type' => 'feature','post_status' => 'publish'))?>
-	<?php if ($four_recent_posts):?>
+	<?php $three_featured_posts=wp_get_recent_posts(array('numberposts' => 3,'post_type' => 'feature','post_status' => 'publish'))?>
+	<?php if ($three_featured_posts):?>
 	<div class="jslide">
 	    <div class="jslide-control left nomore"><i class="fa fa-chevron-left"></i></div>
 	    <div class="jslide-control right"><i class="fa fa-chevron-right"></i></div>
 	    <div class="jslide-outside">
 	        <div class="jslide-container clearfix">
-	        	<?php foreach ($four_recent_posts as $recent) :?>
+	        	<?php foreach ($three_featured_posts as $recent) :?>
 			            <div class="jslide-item">
 			            	<article class="posts clearfix">
 			            		<h2><?php echo get_the_title($recent["ID"]);?></h2>
@@ -78,9 +78,12 @@ get_header(); ?>
 		if ( have_posts() ) {
 			while ( have_posts() ) {
 				the_post(); ?>
-				<section class="blog-posts">
+				<section <?php post_class('blog-posts');?>>
 				<h2><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>
-				<div class="post-date"><?php echo __("Posted On")?> <?php the_date(); ?></div>	
+				<div class="row">
+					<div class="col-sm-3 post-date"><?php echo __("Posted On")?> <?php the_date(); ?></div>	
+					<div class="col-sm-6 post-catergory"> <i class="fa fa-file"></i> <?php the_category(" ","single"); ?></div>	
+				</div>
 				<article class="post-content">
 				<?php if (has_post_thumbnail()): ?>
 					<div class="featured-image"><?php echo get_the_post_thumbnail(); ?> </div>

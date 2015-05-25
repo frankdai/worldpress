@@ -258,7 +258,6 @@ section.blog-posts {
 			font-size: 18px;
 			padding: 3px 5px;
 			.border-radius(8px);
-			width:50px;
 			.centered-text();
 			background-color: hsl(10,70%,60%);
 			margin: 5px 10px 5px 0;
@@ -309,7 +308,6 @@ section.blog-posts {
 		.centered-block(25px);
 		background-color: white;
 		h2.widget-title {
-			.centered-text();
 			.dotbottomborder();
 			font-size: 1.5em;
 			margin-top: 5px;
@@ -318,9 +316,62 @@ section.blog-posts {
 		>ul {
 			.resetpadding();
 			>li {
-				.centered-text;
 				.transform-text();
 			}
 		}
+	}
+}
+
+//comments area
+section#comments {
+	.resetpadding(15px);
+	background-color: white;
+	margin-top: 15px;
+	.comment-meta {
+		padding-left: 52px;
+		margin-top: -18px;
+	}
+	.comment-body>p {
+		background-color: @gray-lighter;
+		.resetpadding(10px);
+		margin-top: 10px;
+		position: relative;
+		.border-radius(10px);
+		&::before {
+			top:-10px;
+			position: absolute;
+			border-width: 0 10px 17.3px 10px;
+			.tri(@gray-lighter);
+		}
+	}
+	.commentlist {
+		padding-left:0;
+		>.comment {
+			border-bottom:1px dotted @main-color;
+		}
+		.comment {
+			margin-top: 8px;
+			.resetpadding(5px);
+		}
+	}
+}
+
+#commentform {
+	label {
+		width:70px;
+		vertical-align: top;
+		.required {
+			color:hsl(0,100%,60%);
+		}
+	}
+	#submit {
+		color:@gray-lighter;
+		background-color: @main-color;
+		border:1px solid @main-color;
+		padding: 4px 8px;
+		.border-radius(5px);
+	}
+	#comment {
+		max-width: 100%;
 	}
 }

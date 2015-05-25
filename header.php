@@ -21,7 +21,7 @@
 	<head>
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 		<meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo("charset");?>">
-		<title><?php bloginfo('title');?></title>
+		<title><?php bloginfo('title');?><?php wp_title();?></title>
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,7 +81,7 @@
 							<i class="fa fa-google-plus"></i>
 						</a>
 						<a href="<?php echo get_theme_mod('pinterest_profile_link', 'http://www.pinterest.com'); ?>">
-							<i class="fa fa-pinterest"></i>
+							<i class="fa fa-pinterest-p"></i>
 						</a>
 					</div>	
 					<div class="col-sm-1 col-xs-3 search-bar">

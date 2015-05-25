@@ -316,7 +316,6 @@ section.blog-posts article.post-content .dislike {
   font-size: 18px;
   padding: 3px 5px;
   border-radius: 8px;
-  width: 50px;
   text-align: center;
   background-color: #e06952;
   margin: 5px 10px 5px 0;
@@ -361,7 +360,6 @@ section.blog-posts .post-info .links span a:hover {
   background-color: white;
 }
 #widget > div h2.widget-title {
-  text-align: center;
   border-bottom: 1px dotted #bc8e5c;
   font-size: 1.5em;
   margin-top: 5px;
@@ -371,6 +369,58 @@ section.blog-posts .post-info .links span a:hover {
   padding: 0;
 }
 #widget > div > ul > li {
-  text-align: center;
   text-transform: capitalize;
+}
+section#comments {
+  padding: 15px;
+  background-color: white;
+  margin-top: 15px;
+}
+section#comments .comment-meta {
+  padding-left: 52px;
+  margin-top: -18px;
+}
+section#comments .comment-body > p {
+  background-color: #eeeeee;
+  padding: 10px;
+  margin-top: 10px;
+  position: relative;
+  border-radius: 10px;
+}
+section#comments .comment-body > p::before {
+  top: -10px;
+  position: absolute;
+  border-width: 0 10px 17.3px 10px;
+  content: " ";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent #eeeeee transparent;
+}
+section#comments .commentlist {
+  padding-left: 0;
+}
+section#comments .commentlist > .comment {
+  border-bottom: 1px dotted #bc8e5c;
+}
+section#comments .commentlist .comment {
+  margin-top: 8px;
+  padding: 5px;
+}
+#commentform label {
+  width: 70px;
+  vertical-align: top;
+}
+#commentform label .required {
+  color: #ff3333;
+}
+#commentform #submit {
+  color: #eeeeee;
+  background-color: #bc8e5c;
+  border: 1px solid #bc8e5c;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+#commentform #comment {
+  max-width: 100%;
 }
