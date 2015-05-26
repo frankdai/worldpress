@@ -17,7 +17,7 @@ get_header(); ?>
 			while ( have_posts() ) {
 				the_post(); ?>
 				<section <?php post_class('blog-posts');?>>
-				<h2><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>
+				<h1><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h1>
 				<div class="row">
 					<div class="col-sm-3 post-date"><?php echo __("Posted On")?> <?php the_date(); ?></div>	
 					<div class="col-sm-6 post-catergory"> <i class="fa fa-file"></i> <?php the_category(" ","single"); ?></div>	
@@ -54,6 +54,10 @@ get_header(); ?>
 						<span><a href=" <?php comments_link(); ?>"><?php comments_number(__('No Comments Yet')); ?></a></span>
 					</div>
 				</article>
+				<nav class="post-nav row">
+					<div class="prev-link col-sm-6"><?php previous_post_link("&laquo; Last Post: %link");?></div>
+					<div class="next-link col-sm-6"><?php next_post_link("Next Post: %link &raquo");?></div>
+				</nav>
 				</section>
 				
 					<?php comments_template(); ?> 

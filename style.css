@@ -55,13 +55,22 @@ li {
   background-color: transparent;
 }
 #menu-main-menu-nav > li .sub-menu {
+  z-index: 102;
   text-align: center;
   display: none;
   position: absolute;
   left: 0;
   padding: 0 15px;
-  background-color: #eeeeee;
+  background-color: #c4c4c4;
   min-width: 100%;
+}
+#menu-main-menu-nav > li .sub-menu::before {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 7.5px 13px 7.5px;
+  border-color: transparent transparent #c4c4c4 transparent;
 }
 #menu-main-menu-nav > li .sub-menu > li {
   padding-top: 3px;
@@ -255,7 +264,6 @@ li {
 .jslide-container {
   box-sizing: border-box;
   width: 10000px;
-  /*to keep the layout from broken in case of slow load*/
 }
 .jslide {
   position: relative;
@@ -324,12 +332,14 @@ section.blog-posts article.post-content .like .fa,
 section.blog-posts article.post-content .dislike .fa {
   margin-right: 8px;
 }
+section.blog-posts h1,
 section.blog-posts h2 {
   text-transform: capitalize;
   border-bottom: 1px dotted #bc8e5c;
   margin: 0;
   padding-bottom: 5px;
 }
+section.blog-posts h1 a:hover,
 section.blog-posts h2 a:hover {
   text-decoration: none;
 }
@@ -356,7 +366,7 @@ section.blog-posts .post-info .links span a:hover {
 }
 #widget > div {
   padding: 10px 25px 15px 25px;
-  margin: 25px auto;
+  margin: 20px auto;
   background-color: white;
 }
 #widget > div h2.widget-title {
@@ -364,6 +374,7 @@ section.blog-posts .post-info .links span a:hover {
   font-size: 1.5em;
   margin-top: 5px;
   padding-bottom: 5px;
+  font-weight: bold;
 }
 #widget > div > ul {
   padding: 0;
@@ -371,30 +382,50 @@ section.blog-posts .post-info .links span a:hover {
 #widget > div > ul > li {
   text-transform: capitalize;
 }
+#wp-calendar {
+  width: 100%;
+}
+#wp-calendar caption {
+  text-align: center;
+  font-weight: bold;
+}
+#wp-calendar td,
+#wp-calendar th {
+  text-align: center;
+}
+#wp-calendar td > a,
+#wp-calendar th > a {
+  color: #7e5b34;
+  font-weight: 700;
+  text-decoration: underline;
+}
+#wp-calendar #today {
+  color: #e06952;
+}
 section#comments {
   padding: 15px;
   background-color: white;
   margin-top: 15px;
 }
-section#comments .comment-meta {
+section#comments .comment-metadata {
   padding-left: 52px;
   margin-top: -18px;
 }
-section#comments .comment-body > p {
+section#comments .comment-content > p {
   background-color: #eeeeee;
   padding: 10px;
   margin-top: 10px;
   position: relative;
   border-radius: 10px;
 }
-section#comments .comment-body > p::before {
+section#comments .comment-content > p::before {
   top: -10px;
   position: absolute;
-  border-width: 0 10px 17.3px 10px;
   content: " ";
   width: 0;
   height: 0;
   border-style: solid;
+  border-width: 0 10px 17.3px 10px;
   border-color: transparent transparent #eeeeee transparent;
 }
 section#comments .commentlist {
@@ -423,4 +454,11 @@ section#comments .commentlist .comment {
 }
 #commentform #comment {
   max-width: 100%;
+}
+nav.post-nav {
+  margin-top: 10px;
+  font-size: 16px;
+}
+nav.post-nav .next-link {
+  text-align: right;
 }

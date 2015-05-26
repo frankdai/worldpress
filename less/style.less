@@ -9,13 +9,17 @@
 		}
 		position: relative;
 		.sub-menu {
+			z-index: @z-index-init+2;
 			.centered-text();
 			display:none;
 			position: absolute;
 			left:0;
 			padding:0 15px;
-			background-color: @gray-lighter;
-			 min-width: 100%;
+			background-color: lighten(@gray-light, 30%);
+			min-width: 100%;
+			&::before {
+				.tri(lighten(@gray-light, 30%),top,15px);
+			}
 			 >li {
 			 	.middle-padding(3px);
 			 }
@@ -202,7 +206,7 @@
 }
 .jslide-container {
     box-sizing:border-box;
-    width:10000px; /*to keep the layout from broken in case of slow load*/
+    width:10000px;
 }
 .jslide {
     position:relative;
@@ -266,7 +270,7 @@ section.blog-posts {
 	background-color: white;
 	.resetpadding(15px);
 	margin-top: 20px;
-	h2 {
+	h1,h2 {
 		.transform-text();
 		.dotbottomborder();
 		.resetmargin();
@@ -305,13 +309,14 @@ section.blog-posts {
 	
 	>div {
 		padding:10px 25px 15px 25px;
-		.centered-block(25px);
+		.centered-block(20px);
 		background-color: white;
 		h2.widget-title {
 			.dotbottomborder();
 			font-size: 1.5em;
 			margin-top: 5px;
 			padding-bottom: 5px;
+			font-weight: bold;
 		}
 		>ul {
 			.resetpadding();
@@ -322,16 +327,35 @@ section.blog-posts {
 	}
 }
 
+#wp-calendar {
+	width:100%;
+	caption {
+		.centered-text;
+		font-weight: bold;
+	}
+	td,th {
+		.centered-text();
+		>a {
+			color:darken(@main-color, 20%);
+			font-weight: 700;
+			text-decoration: underline;
+		}
+	}
+	#today {
+		color:hsl(10,70%,60%)
+	}
+}
+
 //comments area
 section#comments {
 	.resetpadding(15px);
 	background-color: white;
 	margin-top: 15px;
-	.comment-meta {
+	.comment-metadata {
 		padding-left: 52px;
 		margin-top: -18px;
 	}
-	.comment-body>p {
+	.comment-content>p {
 		background-color: @gray-lighter;
 		.resetpadding(10px);
 		margin-top: 10px;
@@ -340,8 +364,7 @@ section#comments {
 		&::before {
 			top:-10px;
 			position: absolute;
-			border-width: 0 10px 17.3px 10px;
-			.tri(@gray-lighter);
+			.tri(#eee,top,20px);
 		}
 	}
 	.commentlist {
@@ -373,5 +396,15 @@ section#comments {
 	}
 	#comment {
 		max-width: 100%;
+	}
+}
+
+//single post area
+
+nav.post-nav {
+	margin-top: 10px;
+	font-size: @font-base+2;
+	.next-link {
+		text-align: right;
 	}
 }

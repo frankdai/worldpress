@@ -59,10 +59,35 @@
 .border-radius(@value:5px){
 	border-radius: @value;
 }
-.tri(@color) {
+.tri(@color,@dir,@length) when (@dir=top) {
 	content:" ";
 	width: 0;
 	height: 0;
 	border-style: solid;
+	border-width: 0 @length/2 round(@length*0.866025,1) @length/2;
 	border-color: transparent transparent @color transparent;
+}
+.tri(@color,@dir,@length) when (@dir=left) {
+	content:" ";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: @length/2 round(@length*0.866025,1) @length/2 0;
+	border-color: transparent @color transparent  transparent;
+}
+.tri(@color,@dir,@length) when (@dir=bottom) {
+	content:" ";
+	width: 0;
+	height: 0;
+	border-width: round(@length*0.866025,1) @length/2 0 @length/2;
+	border-style: solid;
+	border-color: @color transparent transparent  transparent;
+}
+.tri(@color,@dir,@length) when (@dir=right) {
+	content:" ";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: @length/2 0 @length/2 round(@length*0.866025,1);
+	border-color: transparent transparent transparent @color;
 }
