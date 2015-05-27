@@ -152,7 +152,7 @@ add_theme_support( 'post-thumbnails' );
 //html5 form handling
 add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'widgets' ) );
 
-//add about us text widget to be used in the footer area
+//add about us text widget  
 class worldpress_about_widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
@@ -168,7 +168,7 @@ class worldpress_about_widget extends WP_Widget {
    		echo $before_widget;
    		?>
    		<div class="widget-text worldpress-about-widget">
-   		<?php echo $before_title . $title . $after_title;;?>
+   		<?php echo $before_title . $title . $after_title;?>
    		<p><?php echo $textarea;?></p>
    		</div>
    		<?php 
@@ -176,7 +176,7 @@ class worldpress_about_widget extends WP_Widget {
 	}
 	public function form($instance) {
 		if( $instance) {
-		     $title = esc_attr($instance['title']);
+		     $title = esc_attr($instance['title']); 
 		     $textarea = esc_textarea($instance['textarea']);
 		} else {
 		     $title = 'About Us';
@@ -205,3 +205,61 @@ function wordpress_about_register_widget() {
     register_widget( 'worldpress_about_widget' );
 }
 add_action( 'widgets_init', 'wordpress_about_register_widget' );
+
+//add media gallery widget  
+class worldpress_gallery_widget extends WP_Widget {
+	function __construct() {
+		parent::__construct(
+			'worldpress_gallery',  
+			__( 'Image Gallery', 'text_domain' ),  
+			array( 'description' => __( 'Show Recent Ten Uploaded Pictures in Thumbnails', 'text_domain' ), ) 
+		);
+	}
+	public function widget($args,$instance) {
+		extract( $args );
+   		$title = apply_filters('widget_title', $instance['title']);
+   		echo $before_widget;
+   		?>
+   		<div class="widget-text worldpress-gallery-widget">
+   		<?php echo $before_title . $title . $after_title;;?>
+   		<?php 
+			$args = array(
+			   'post_type'      => 'attachment',  
+			   'post_status'    => 'inherit',  
+			   'post_mime_type' => 'image',  
+			   'posts_per_page' => 16 
+			);
+			$attachments = get_posts($args); 
+			foreach($attachments as $a)
+			{
+			   echo wp_get_attachment_image($a->ID, 'thumbnail');
+			}
+   		?>
+   		</div>
+   		<?php 
+   		echo $after_widget;
+	}
+	public function form($instance) {
+		if( $instance) {
+		     $title = esc_attr($instance['title']); 
+		} else {
+		     $title = 'Gallery';
+		}
+		?>
+		<p>
+		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget Title', 'wp_widget_plugin'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+		</p>
+		<?php
+	}
+	public function update($new_instance,$old_instance){
+		$instance = $old_instance;
+      	$instance['title'] = strip_tags($new_instance['title']);
+     	return $instance;
+	}
+}
+
+function wordpress_gallery_register_widget() {
+    register_widget( 'worldpress_gallery_widget' );
+}
+add_action( 'widgets_init', 'wordpress_gallery_register_widget' );
