@@ -36,8 +36,8 @@ function footer_first_widget_init() {
 		'id'            => 'first_footer_widget',
 		'before_widget' => '<div>',
 		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'footer_first_widget_init' );
@@ -48,8 +48,8 @@ function footer_second_widget_init() {
 		'id'            => 'second_footer_widget',
 		'before_widget' => '<div>',
 		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'footer_second_widget_init' );
@@ -60,8 +60,8 @@ function footer_third_widget_init() {
 		'id'            => 'third_footer_widget',
 		'before_widget' => '<div>',
 		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'footer_third_widget_init' );
@@ -212,12 +212,13 @@ class worldpress_gallery_widget extends WP_Widget {
 		parent::__construct(
 			'worldpress_gallery',  
 			__( 'Image Gallery', 'text_domain' ),  
-			array( 'description' => __( 'Show Recent Ten Uploaded Pictures in Thumbnails', 'text_domain' ), ) 
+			array( 'description' => __( 'Show Recent Uploaded Pictures in Thumbnails', 'text_domain' ), ) 
 		);
 	}
 	public function widget($args,$instance) {
 		extract( $args );
    		$title = apply_filters('widget_title', $instance['title']);
+   		$number=$instance['number'];
    		echo $before_widget;
    		?>
    		<div class="widget-text worldpress-gallery-widget">
@@ -227,12 +228,18 @@ class worldpress_gallery_widget extends WP_Widget {
 			   'post_type'      => 'attachment',  
 			   'post_status'    => 'inherit',  
 			   'post_mime_type' => 'image',  
-			   'posts_per_page' => 16 
+			   'posts_per_page' => $number 
 			);
 			$attachments = get_posts($args); 
 			foreach($attachments as $a)
 			{
-			   echo wp_get_attachment_image($a->ID, 'thumbnail');
+			?>
+			   <div class="col-xs-3 worldpress-gallery-image">
+			   		<a href="<?php echo wp_get_attachment_url( $a->ID );?>" title="<?php echo $a->post_title;?>">
+			   		<img width="150" height="150" class="img-responsive img-thumbnail" src="<?php echo wp_get_attachment_image_src($a->ID)[0];?>" />
+			   		</a>
+			   </div>
+			<?php 
 			}
    		?>
    		</div>
@@ -240,21 +247,36 @@ class worldpress_gallery_widget extends WP_Widget {
    		echo $after_widget;
 	}
 	public function form($instance) {
-		if( $instance) {
+		if( $instance['title']) {
 		     $title = esc_attr($instance['title']); 
 		} else {
-		     $title = 'Gallery';
+		     $title = __('Gallery');
+		}
+		if ($instance['number']) {
+			$number= $instance['number']; 
+		} else {
+			$number=8;
 		}
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget Title', 'wp_widget_plugin'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
+		<p>
+		<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of Images To Show', 'wp_widget_plugin'); ?></label>
+		<select class="widefat" id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>">
+			<option>4</option>
+			<option>8</option>
+			<option>12</option>
+			<option>16</option>
+		</select>
+		</p>
 		<?php
 	}
 	public function update($new_instance,$old_instance){
 		$instance = $old_instance;
       	$instance['title'] = strip_tags($new_instance['title']);
+      	$instance['number'] = strip_tags($new_instance['number']);
      	return $instance;
 	}
 }

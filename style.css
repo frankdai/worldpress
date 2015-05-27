@@ -44,6 +44,13 @@ li {
   height: auto;
   display: block;
 }
+.white {
+  background-color: #fff;
+}
+.float-clear::after {
+  content: " ";
+  display: table;
+}
 .main-menu {
   background-color: transparent;
 }
@@ -213,9 +220,14 @@ li {
   padding-bottom: 10px;
 }
 .featured-posts {
-  background-color: white;
+  background-color: #fff;
   padding-bottom: 20px;
   margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+  .featured-posts {
+    display: none;
+  }
 }
 .featured-posts h2 {
   padding-left: 15px;
@@ -225,6 +237,11 @@ li {
 .featured-posts .post-content {
   border-left: 3px solid #bc8e5c;
   position: relative;
+}
+.featured-posts .post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 .featured-posts .post-content .read-more {
   color: #ff3333;
@@ -294,7 +311,7 @@ li {
   display: block;
 }
 section.blog-posts {
-  background-color: white;
+  background-color: #fff;
   padding: 15px;
   margin-top: 20px;
 }
@@ -353,6 +370,13 @@ section.blog-posts .post-info .links span {
 section.blog-posts .post-info .links span a:hover {
   text-decoration: none;
 }
+.page {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: -15px;
+}
 @media (min-width: 480px) {
   #widget .search-form .form-group {
     display: block;
@@ -367,7 +391,7 @@ section.blog-posts .post-info .links span a:hover {
 #widget > div {
   padding: 10px 25px 15px 25px;
   margin: 20px auto;
-  background-color: white;
+  background-color: #fff;
 }
 #widget > div h2.widget-title {
   border-bottom: 1px dotted #bc8e5c;
@@ -404,7 +428,7 @@ section.blog-posts .post-info .links span a:hover {
 }
 section#comments {
   padding: 15px;
-  background-color: white;
+  background-color: #fff;
   margin-top: 15px;
 }
 section#comments .comment-metadata {
@@ -461,4 +485,33 @@ nav.post-nav {
 }
 nav.post-nav .next-link {
   text-align: right;
+}
+#wrapper-footer {
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #fff;
+}
+#wrapper-footer .widget-title {
+  margin: 5px 0 10px 0;
+  border-bottom: 1px dotted #bc8e5c;
+  padding-bottom: 5px;
+}
+footer.credit {
+  background-color: #222222;
+  color: #eeeeee;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+footer.credit a {
+  color: #bc8e5c;
+}
+footer.credit a:hover {
+  font-weight: bold;
+}
+.worldpress-gallery-widget .col-xs-3 {
+  padding: 0;
+}
+.worldpress-gallery-widget .col-xs-3 a {
+  display: block;
 }

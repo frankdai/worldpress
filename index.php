@@ -120,12 +120,16 @@ get_header(); ?>
 			<?php }
 		}
 	?>
-	<div class="pagination"><?php echo paginate_links(); ?></div>
+	<div class="page clearfix">
+		<div class="col-xs-6 text-left"><?php previous_posts_link(); ?></div>
+		<div class="col-xs-6 text-right"><?php next_posts_link(); ?></div>
+	</div>
 	</div>
 	<?php
 	get_sidebar();
 	?>
 </div>
+<?php get_template_part('modal'); ?>
 
 <?php
 get_footer();

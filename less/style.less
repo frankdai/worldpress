@@ -158,7 +158,10 @@
 	.middle-padding(10px);
 }
 .featured-posts {
-	background-color: white;
+	@media (max-width:@screen-sm) {
+		display: none;
+	}
+	.white();
 	padding-bottom: 20px;
 	margin-bottom: 15px;
 	h2 {
@@ -166,6 +169,9 @@
 		.centered-text();
 	}
 	.post-content {
+		img {
+			.img-responsive();
+		}
 		border-left:3px solid @main-color;
 		position: relative;
 		.read-more {
@@ -267,7 +273,7 @@ section.blog-posts {
 			margin: 5px 10px 5px 0;
 		}
 	}
-	background-color: white;
+	.white();
 	.resetpadding(15px);
 	margin-top: 20px;
 	h1,h2 {
@@ -290,6 +296,12 @@ section.blog-posts {
 	}
 
 }
+.page {
+	.middle-padding(10px);
+	font-weight:bold;
+	font-size: @font-size-base+2;
+	margin-bottom: -15px;
+}
 
 //wdiget area
 #widget {
@@ -310,7 +322,7 @@ section.blog-posts {
 	>div {
 		padding:10px 25px 15px 25px;
 		.centered-block(20px);
-		background-color: white;
+		.white();
 		h2.widget-title {
 			.dotbottomborder();
 			font-size: 1.5em;
@@ -349,7 +361,7 @@ section.blog-posts {
 //comments area
 section#comments {
 	.resetpadding(15px);
-	background-color: white;
+	.white();
 	margin-top: 15px;
 	.comment-metadata {
 		padding-left: 52px;
@@ -406,5 +418,38 @@ nav.post-nav {
 	font-size: @font-base+2;
 	.next-link {
 		text-align: right;
+	}
+}
+
+//footer area
+#wrapper-footer {
+	margin-top: 20px;
+	.middle-padding(10px);
+	.white();
+	.widget-title {
+		margin:5px 0 10px 0;
+		.dotbottomborder();
+		padding-bottom: 5px;
+	}
+}
+footer.credit {
+	background-color: @gray-darker;
+	color:@gray-lighter;
+	.middle-padding(10px);
+	a {
+		color:@main-color;
+		&:hover {
+			font-weight: bold;
+		}
+	}
+}
+
+//customized widget
+.worldpress-gallery-widget {
+	.col-xs-3 {
+		.resetpadding();
+		a {
+			display: block;
+		}
 	}
 }

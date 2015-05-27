@@ -91,3 +91,12 @@
 	border-width: @length/2 0 @length/2 round(@length*0.866025,1);
 	border-color: transparent transparent transparent @color;
 }
+.white {
+	background-color: #fff;
+}
+.float-clear {
+	&::after {
+		content:" ";
+		display:table;
+	}
+}

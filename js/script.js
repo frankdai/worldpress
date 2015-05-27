@@ -74,6 +74,25 @@
 			});
 		});
 	};
+	worldpress.galleryModal=function(){
+		var gallery=$('.worldpress-gallery-widget');
+		if (gallery) {
+			var images=gallery.find('.worldpress-gallery-image a');
+			var modal=$('#worldpress-modal');
+			var modalBody=modal.find('.modal-body');
+			var modalTitle=modal.find('.modal-title');
+			console.log(images);
+			images.click(function(event){
+				var src=this.getAttribute('href');
+				var title=this.getAttribute('title');
+				modalTitle.text(title);
+				modalBody.html('<div class="text-center"><img src="'+src+'" class="img-responsive"></div>');
+				modal.modal();
+				event.preventDefault();
+				return false;
+			});
+		}
+	};
 	$(document).ready(function(){
 		$.each(worldpress,function(key,value){
 			if (typeof value==="function") {
