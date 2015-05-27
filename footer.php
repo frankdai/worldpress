@@ -31,7 +31,7 @@
 <footer class="credit">
 	<div class="container">
 		<div class="col-xs-6 powered-by-wordpress text-left">Proudly Powered By <a href="http://wordpress.org">Wordpress</a></div>
-		<div class="col-xs-6 theme-credit text-right">Themed By <a href="http://frankdai.com">Frank Dai</a></div>
+		<div class="col-xs-6 theme-credit text-right" rel="nofollow">Themed By <a href="http://frankdai.com">Frank Dai</a></div>
 	</div>
 </footer>
 <?php wp_footer(); ?>      
