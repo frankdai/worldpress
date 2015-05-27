@@ -19,9 +19,15 @@
 			min-width: 100%;
 			&::before {
 				.tri(lighten(@gray-light, 30%),top,15px);
+				position: absolute;
+				top:-10px;
+				left:15px;
 			}
 			 >li {
 			 	.middle-padding(3px);
+			 	a {
+			 		color:lighten(@gray-darker, 20%);
+			 	}
 			 }
 		}
 		.sub-menu.over {
@@ -297,10 +303,9 @@ section.blog-posts {
 
 }
 .page {
-	.middle-padding(10px);
+	margin-top: 10px;
 	font-weight:bold;
 	font-size: @font-size-base+2;
-	margin-bottom: -15px;
 }
 
 //wdiget area
@@ -423,7 +428,7 @@ nav.post-nav {
 
 //footer area
 #wrapper-footer {
-	margin-top: 20px;
+	margin-top: 10px;
 	.middle-padding(10px);
 	.white();
 	.widget-title {

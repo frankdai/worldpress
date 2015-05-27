@@ -175,12 +175,15 @@ class worldpress_about_widget extends WP_Widget {
    		echo $after_widget;
 	}
 	public function form($instance) {
-		if( $instance) {
+		if( $instance['title']) {
 		     $title = esc_attr($instance['title']); 
-		     $textarea = esc_textarea($instance['textarea']);
 		} else {
 		     $title = 'About Us';
-		     $textarea = 'A very fast-learning web design company etc.';
+		}
+		if ($instance['textarea']) {
+			$textarea=esc_textarea($instance['textarea']);
+		} else {
+			$textarea="Just about us text";
 		}
 		?>
 		<p>
