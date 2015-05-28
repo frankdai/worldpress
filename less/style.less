@@ -2,8 +2,8 @@
 .main-menu {
 	background-color:transparent; 
 }
-#menu-main-menu-nav {
-	>li {
+.main-menu {
+	li {
 		&>a:focus,&>a:hover {
 			background-color: transparent;
 		}
@@ -302,7 +302,7 @@ section.blog-posts {
 	}
 
 }
-.page {
+.page-nav {
 	margin-top: 10px;
 	font-weight:bold;
 	font-size: @font-size-base+2;
@@ -368,10 +368,6 @@ section#comments {
 	.resetpadding(15px);
 	.white();
 	margin-top: 15px;
-	.comment-metadata {
-		padding-left: 52px;
-		margin-top: -18px;
-	}
 	.comment-content>p {
 		background-color: @gray-lighter;
 		.resetpadding(10px);
@@ -386,7 +382,7 @@ section#comments {
 	}
 	.commentlist {
 		padding-left:0;
-		>.comment {
+		>li {
 			border-bottom:1px dotted @main-color;
 		}
 		.comment {
@@ -444,7 +440,7 @@ footer.credit {
 	a {
 		color:@main-color;
 		&:hover {
-			font-weight: bold;
+			color:darken(@main-color, 15%)
 		}
 	}
 }

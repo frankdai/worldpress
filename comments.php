@@ -13,7 +13,7 @@ if ( post_password_required() ) {
 <?php if (have_comments()) : ?>
 		<h4><?php echo __('There Are ');comments_number();?> On"<em><?php the_title();?></em>"</h4>
 		<ol class="commentlist">
-			<?php wp_list_comments( array( 'walker' => new Walker_Comment(),'avatar_size' =>48,'style' => 'ol' ) ); ?>
+			<?php wp_list_comments( array( 'walker' => new Walker_Comment(),'avatar_size' =>0,'style' => 'ol' ) ); ?>
 		</ol>
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 			<div id="comment-nav-below" class="navigation" role="navigation">

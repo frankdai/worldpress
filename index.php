@@ -9,9 +9,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package WordPress
- * @subpackage Worldpress
- * @since Worldpress 0.1
+ * @package WorldPress
+ * @since Worldpress 0.0.1
  */
 
 get_header(); ?>
@@ -66,7 +65,7 @@ get_header(); ?>
 			<?php }
 		}
 	?>
-	<div class="page clearfix">
+	<div class="page-nav clearfix">
 		<div class="col-xs-6 text-left"><?php previous_posts_link(); ?></div>
 		<div class="col-xs-6 text-right"><?php next_posts_link(); ?></div>
 	</div>
@@ -75,7 +74,6 @@ get_header(); ?>
 	get_sidebar();
 	?>
 </div>
-<?php get_template_part('modal'); ?>
 
 <?php
 get_footer();

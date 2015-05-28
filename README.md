@@ -6,7 +6,9 @@ A concise, minimalist and mobile-friendly Wordpress theme dedicated to people wh
 * No depedence on parent theme
 * Built-in customized version of Bootstrap resources
 * Four widget area, one in right sidebar and three optional in footer area. 
+* Media gallery widget included to display thumbnail of recent uploaded images. 
 * Featured post type, which will be promoted to front page carousel when posted
+* Built-in support for like/dislike feature of the post 
 * No images included, only CSS3 font-icon
 * Less files included for easily changing the color and appearance via reset variable
 

@@ -2,7 +2,8 @@
 /**
  * The Sidebar containing the main widget areas.
  *
- * @package photolab
+ * @package Worldpress
+ * @since 0.0.1
  */
 ?>
 	<div id="secondary" class="widget-area col-sm-3" role="complementary">
@@ -12,5 +13,5 @@
 				<?php dynamic_sidebar( 'home_right_1' ); ?>
 			</aside>
 
-		<?php endif; // end sidebar widget area ?>
-	</div><!-- #secondary -->
+		<?php endif; ?>
+	</div>

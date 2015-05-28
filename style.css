@@ -54,14 +54,14 @@ li {
 .main-menu {
   background-color: transparent;
 }
-#menu-main-menu-nav > li {
+.main-menu li {
   position: relative;
 }
-#menu-main-menu-nav > li > a:focus,
-#menu-main-menu-nav > li > a:hover {
+.main-menu li > a:focus,
+.main-menu li > a:hover {
   background-color: transparent;
 }
-#menu-main-menu-nav > li .sub-menu {
+.main-menu li .sub-menu {
   z-index: 102;
   text-align: center;
   display: none;
@@ -71,7 +71,7 @@ li {
   background-color: #c4c4c4;
   min-width: 100%;
 }
-#menu-main-menu-nav > li .sub-menu::before {
+.main-menu li .sub-menu::before {
   content: " ";
   width: 0;
   height: 0;
@@ -82,14 +82,14 @@ li {
   top: -10px;
   left: 15px;
 }
-#menu-main-menu-nav > li .sub-menu > li {
+.main-menu li .sub-menu > li {
   padding-top: 3px;
   padding-bottom: 3px;
 }
-#menu-main-menu-nav > li .sub-menu > li a {
+.main-menu li .sub-menu > li a {
   color: #555555;
 }
-#menu-main-menu-nav > li .sub-menu.over {
+.main-menu li .sub-menu.over {
   display: block;
 }
 .top-bar {
@@ -376,7 +376,7 @@ section.blog-posts .post-info .links span {
 section.blog-posts .post-info .links span a:hover {
   text-decoration: none;
 }
-.page {
+.page-nav {
   margin-top: 10px;
   font-weight: bold;
   font-size: 16px;
@@ -435,10 +435,6 @@ section#comments {
   background-color: #fff;
   margin-top: 15px;
 }
-section#comments .comment-metadata {
-  padding-left: 52px;
-  margin-top: -18px;
-}
 section#comments .comment-content > p {
   background-color: #eeeeee;
   padding: 10px;
@@ -459,7 +455,7 @@ section#comments .comment-content > p::before {
 section#comments .commentlist {
   padding-left: 0;
 }
-section#comments .commentlist > .comment {
+section#comments .commentlist > li {
   border-bottom: 1px dotted #bc8e5c;
 }
 section#comments .commentlist .comment {
@@ -511,7 +507,7 @@ footer.credit a {
   color: #bc8e5c;
 }
 footer.credit a:hover {
-  font-weight: bold;
+  color: #90683b;
 }
 .worldpress-gallery-widget .col-xs-3 {
   padding: 0;

@@ -5,8 +5,7 @@
  *
  * @link 
  *
- * @package WordPress
- * @subpackage Worldpress
+ * @package WorldPress
  * @since Worldpress 0.1
  */
 

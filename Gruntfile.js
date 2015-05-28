@@ -20,6 +20,15 @@ module.exports = function(grunt) {
     			}
     		}
   		},
+  		concat: {
+  			options: {
+      			separator: ';',
+    		},
+		    dist: {
+		      src: ['js/bootstrap.min.js', 'js/jslide.min.js', 'js/script.js'],
+		      dest: 'js/script.js',
+		    }
+  		},
   		watch: {
   			less:{
   				files:['less/*.less'],
@@ -30,7 +39,9 @@ module.exports = function(grunt) {
 	 grunt.loadNpmTasks('grunt-contrib-uglify');
 	 grunt.loadNpmTasks('grunt-contrib-less');
 	 grunt.loadNpmTasks('grunt-contrib-watch');
-	 grunt.registerTask('default',['uglify','less']);
+	 grunt.loadNpmTasks('grunt-contrib-cssmin');
+	 grunt.loadNpmTasks('grunt-contrib-concat');
+	 grunt.registerTask('default',['concat','uglify','less']);
 }
 
 
