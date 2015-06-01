@@ -1,6 +1,9 @@
 //header,menu etc.
 .main-menu {
 	background-color:transparent; 
+	>ul>li:hover {
+		background-color: lighten(@gray-light, 30%);
+	}
 }
 .main-menu {
 	li {
@@ -18,7 +21,6 @@
 			background-color: lighten(@gray-light, 30%);
 			min-width: 100%;
 			&::before {
-				.tri(lighten(@gray-light, 30%),top,15px);
 				position: absolute;
 				top:-10px;
 				left:15px;
