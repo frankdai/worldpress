@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 			options:{
 				preserveComments:false,
 			},
-			my_target: {
+			minifyJS: {
 				files: {
 					'js/script.min.js':'js/script.js'
 				}
